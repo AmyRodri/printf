@@ -6,7 +6,7 @@
 /*   By: amyrodri <amyrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 14:47:56 by amyrodri          #+#    #+#             */
-/*   Updated: 2025/07/29 14:26:26 by amyrodri         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:59:25 by amyrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	print_arg(va_list args, const char *format)
 	if (*format == 'd' || *format == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	if (*format == 'u')
-		return (ft_unsignednbr(va_arg(args, unsigned int)));
+		return (ft_putuint(va_arg(args, unsigned int)));
 	if (*format == 'x')
 		return (ft_puthex_lower(va_arg(args, unsigned int)));
 	if (*format == 'X')
