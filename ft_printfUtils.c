@@ -6,7 +6,7 @@
 /*   By: amyrodri <amyrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:59:54 by amyrodri          #+#    #+#             */
-/*   Updated: 2025/07/29 12:35:56 by amyrodri         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:26:19 by amyrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_putstr(const char *s)
 {
 	int	i;
 
+	if (!s)
+		return (write(1, "(null)", 6));
 	i = 0;
 	while (s[i])
 		write(1, &s[i++], 1);
@@ -52,6 +54,8 @@ int	ft_putptr(void *p)
 	int				i;
 	unsigned long	endres;
 
+	if (!p)
+		return (write(1, "(nil)", 5));
 	endres = (unsigned long)p;
 	write(1, "0x", 2);
 	i = 2;

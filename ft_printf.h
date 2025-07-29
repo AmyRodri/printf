@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amyrodri <amyrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 11:56:28 by amyrodri          #+#    #+#             */
-/*   Updated: 2025/07/29 12:35:43 by amyrodri         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:04:49 by amyrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 
+int	ft_printf(const char *format, ...);
 int	ft_putchar(const char c);
 int	ft_putstr(const char *s);
 int	ft_putnbr(int n);
