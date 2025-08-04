@@ -6,7 +6,7 @@
 /*   By: amyrodri <amyrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:59:54 by amyrodri          #+#    #+#             */
-/*   Updated: 2025/07/29 14:26:19 by amyrodri         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:46:39 by amyrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,29 @@ int	ft_putstr(const char *s)
 	return (i);
 }
 
-int	ft_putchar(const char c)
+int	ft_putptr(void *p)
 {
-	return (write(1, &c, 1));
+	unsigned long	endres;
+	int				i;
+	int				count;
+	char			hex[17];
+	char			*base;
+
+	if (!p)
+		return (write(1, "(nil)", 5));
+	write(1, "0x", 2);
+	i = 0;
+	endres = (unsigned long)p;
+	base = "0123456789abcdef";
+	while (endres > 0 || i == 0)
+	{
+		hex[i++] = base[endres % 16];
+		endres /= 16;
+	}
+	count = i + 2;
+	while (i--)
+		write(1, &hex[i], 1);
+	return (count);
 }
 
 int	ft_putnbr(int n)
@@ -49,28 +69,34 @@ int	ft_putnbr(int n)
 	return (i);
 }
 
-int	ft_putptr(void *p)
-{
-	int				i;
-	unsigned long	endres;
-
-	if (!p)
-		return (write(1, "(nil)", 5));
-	endres = (unsigned long)p;
-	write(1, "0x", 2);
-	i = 2;
-	i += ft_puthex(endres);
-	return (i);
-}
-
-int	ft_puthex(unsigned long endres)
+int	ft_putuint(unsigned int nbr)
 {
 	int	i;
 
 	i = 0;
-	if (endres >= 16)
-		i += ft_puthex(endres / 16);
-	write(1, &"0123456789abcdef"[endres % 16], 1);
+	if (nbr >= 10)
+		i += ft_putuint(nbr / 10);
+	write(1, &"0123456789"[nbr % 10], 1);
 	i++;
+	return (i);
+}
+
+int	ft_puthex_handle(unsigned int nbr, const char *format)
+{
+	int	i;
+
+	i = 0;
+	if (nbr >= 16)
+		i += ft_puthex_handle(nbr / 16, format);
+	if (*format == 'x')
+	{
+		write(1, &"0123456789abcdef"[nbr % 16], 1);
+		i++;
+	}
+	if (*format == 'X')
+	{
+		write(1, &"0123456789ABCDEF"[nbr % 16], 1);
+		i++;
+	}
 	return (i);
 }

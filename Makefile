@@ -1,13 +1,12 @@
 NAME = libftprintf.a
 CCFLAGS = -Wall -Wextra -Werror
 CC = cc
-INCLUDE = -I includes
+INCLUDE = -I ./
 AR = ar -rcs
 RM = rm -f
 
 SRCS = ft_printf.c 		  \
 		ft_printfUtils.c  \
-		ft_printfUtils2.c
 
 OBJS := ${SRCS:.c=.o}
 
