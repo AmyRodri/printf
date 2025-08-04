@@ -6,7 +6,7 @@
 /*   By: amyrodri <amyrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 14:47:56 by amyrodri          #+#    #+#             */
-/*   Updated: 2025/07/31 16:46:13 by amyrodri         ###   ########.fr       */
+/*   Updated: 2025/08/04 10:36:39 by amyrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_printf(const char *format, ...)
 			i += 2;
 		}
 		else
-			j += write(1, &format[i++], 1);
+			j += ft_putchar(format[i++]);
 	}
 	va_end(args);
 	return (j);
