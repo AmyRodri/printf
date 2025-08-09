@@ -85,7 +85,6 @@ int main(void)
 | `Makefile`         | Facilita a compilação, recompilação e limpeza do projeto                  |
 
 
-## 🛠 Instalação
 
 ### 🔧 Como Compilar e Usar
 
