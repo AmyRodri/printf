@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amyrodri <amyrodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kamys <kamys@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 14:47:56 by amyrodri          #+#    #+#             */
-/*   Updated: 2025/08/04 10:36:39 by amyrodri         ###   ########.fr       */
+/*   Updated: 2025/08/10 18:01:33 by kamys            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ static int	print_arg(va_list args, const char *format)
 		return (ft_putnbr(va_arg(args, int)));
 	if (*format == 'u')
 		return (ft_putuint(va_arg(args, unsigned int)));
-	if (*format == 'x' || *format == 'X')
-		return (ft_puthex_handle(va_arg(args, unsigned int), format));
+	if (*format == 'x')
+		return (ft_puthex(va_arg(args, unsigned int), "0123456789abcdef"));
+	if (*format == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	if (*format == '%')
 		return (ft_putchar('%'));
-	return (0);
+	return (-1);
 }
 
 int	ft_printf(const char *format, ...)
